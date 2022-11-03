@@ -2229,6 +2229,8 @@ bool PartItem::updatePart()
 
     // *** update checkMotionDone, refTorque, refTrajectorySpeed, refSpeed ***
     // (only one at a time in order to save bandwidth)
+
+    /*
     bool b_motdone = m_iPos->checkMotionDone(m_slow_k, &m_done[m_slow_k]); //using k to save bandwidth
     bool b_refTrq = m_iTrq->getRefTorque(m_slow_k, &m_refTorques[m_slow_k]); //using k to save bandwidth
     bool b_refPosSpeed = m_iPos->getRefSpeed(m_slow_k, &m_refTrajectorySpeeds[m_slow_k]); //using k to save bandwidth
@@ -2254,7 +2256,7 @@ bool PartItem::updatePart()
     if (!b_motdone)
     {
         yError() << "Missing Implementation of checkMotionDone()";
-    }
+    }*/
 
     // *** update the widget every cycle ***
     for (int jk = 0; jk < number_of_joints; jk++)
@@ -2275,6 +2277,7 @@ bool PartItem::updatePart()
     }
 
     // *** update the widget NOT every cycle ***
+    /*
     {
         auto* joint_slow_k = (JointItem*)m_layout->itemAt(m_slow_k)->widget();
         if (b_refTrq) { joint_slow_k->setRefTorque(m_refTorques[m_slow_k]); }
@@ -2287,7 +2290,7 @@ bool PartItem::updatePart()
         else {}
         if (b_motdone) { joint_slow_k->updateMotionDone(m_done[m_slow_k]); }
         else {}
-    }
+    }*/
 
 
     // *** update the controlMode, interactionMode ***
